@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <title>SQL Island Touch</title>
+    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/app.min.css" />
+    <link rel="stylesheet" href="css/animation.min.css" />
+    <script type="text/javascript"  src="./js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript"  src="./js/jquery-ui.min.js"></script>
+    <script type="text/javascript"  src="./js/ace/ace.js"></script>
+    <!--<script type="text/javascript"  src="./js/sqlisland.js"></script>-->
+
+
+
+		<link rel="stylesheet" href="css/picker.min.css" />
+
+
+		<link rel="icon" href="./favicon.ico">
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="ribbon clearfix hide-on-phones">
+        <div class="left">&nbsp;</div>
+        <a href="" class="menu-button red button" id="menu-button"></a>
+        <div class="title"><h1>SQL Island Touch</h1></div>
+        <div class="right">&nbsp;</div>
+        <!--<div class="logo"><img src="./images/wf/logo.png" width="179" height="94" alt="SQL Island" ></div>-->
+    </div>
+
+    <div class="row show-on-phones">
+        <!--<div class="columns twelve phone-logobar"><img src="./images/wf/logo.png" alt="SQL Island" width="120"></div>-->
+        <div class="columns twelve phone-titlebar"><h1>SQL Island Touch</h1></div>
+        <a href="" class="menu-button button red mobile"></a>
+    </div>
+
+    <div class="menu-content">
+      <span class="menu-pointer-bg clearfix"></span>
+      <span class="menu-pointer clearfix"></span>
+
+            <ul class="menu" id="game_menu">
+                <li><a href="#" class="medium red button radius" id="restart-button">Spiel neustarten</a></li>
+								<li><a href="#" class="medium red button radius" id="info-button">Info</a></li>
+            </ul>
+
+    </div>
+    <div class="menu-bg" style="display: block; cursor: pointer; opacity: 0.4;"></div>
+
+
+		<div id="screen-index" class="container" style="margin-top:15px;">
+      <div class="row text-box-container" id="tablelist">
+          <div class="columns twelve button save-button radius" style="padding-left:0px;padding-right:0px">
+            <div class="columns" style="padding-left:15px;padding-right:15px; text-align:left; height:75px; font-size:14.5pt; line-height: 1.2;" id="question"></div>
+          </div>
+      </div>
+        <div class="row text-box-container">
+          <div class="three columns">
+						<div id="pick-select" class="pick-select">1</div>
+					</div>
+					<div class="three columns">
+						<div id="pick-from" class="pick-from" style="margin-left:-25px; margin-right:-25px;">1</div>
+					</div>
+					<div class="six columns">
+						<div class="row">
+							<div class="three columns">
+								<div id="pick-where1" class="pick-where1">1</div>
+							</div>
+							<div class="three columns">
+								<div id="pick-where2" class="pick-where2" style="margin-left:-5px; margin-right:-5px;">1</div>
+							</div>
+							<div class="three columns">
+								<div id="pick-where3" class="pick-where3">1</div>
+							</div>
+                            <div class="three columns">
+								<div id="pick-where4" class="pick-where4">1</div>
+							</div>
+						</div>
+					</div>
+				</div>
+        <div class="row">
+          <div class="twelve columns">
+            <button id="submit-query-button" class="large red button radius" data-style="expand-right"><span class="ladda-label">Ausführen</span></button>
+            <button id="level-display" class="large white  button right" data-style="expand-right"><span class="ladda-label" id="level">Level</span></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <div id="person1" class="person_div" style="position:relative; left:41.5em;top:0.5em">
+              <img class="person" src="./img/people/f1.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/rd8.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.2em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Kati</p>
+              <img class="bag" src="./img/bags/1.png" style="width:6em;position:absolute;top:6.5em; left:5em;"/>
+              <p class="weight" style="position:absolute; top:4.8em; left:7.0em; color:black;">22 kg</p>
+            </div>
+            <div id="person2" class="person_div" style="position:relative; left:51em;top:1.5em">
+              <img class="person" src="./img/people/m1.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/bd1.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.2em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Gary</p>
+              <img class="bag" src="./img/bags/2.png" style="width:6em;position:absolute;top:5em; left:6em;"/>
+              <p class="weight" style="position:absolute; top:3.9em; left:7.4em; color:black;">8 kg</p>
+            </div>
+            <div id="person3" class="person_div" style="position:relative; left:61em;top:2.5em">
+              <img class="person" src="./img/people/f2.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/bk2.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.2em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Julia</p>
+            </div>
+            <div id="person4" class="person_div" style="position:relative; left:71em;top:3.5em">
+              <img class="person" src="./img/people/f3.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/bd2.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.2em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Britta</p>
+              <img class="bag" src="./img/bags/4.png" style="width:5em;position:absolute;top:5.5em; left:5em;"/>
+              <p class="weight" style="position:absolute; top:7.4em; left:6.0em; color:black;">2 kg</p>
+            </div>
+            <div id="person5" class="person_div" style="position:relative; left:36em;top:9.5em">
+              <img class="person" src="./img/people/m2.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/rd1.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.1em; left:1.6em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Dominik</p>
+              <img class="bag" src="./img/bags/5.png" style="width:6em;position:absolute;top:6em; left:4.5em;"/>
+              <p class="weight" style="position:absolute; top:6.98em; left:6.0em; color:black;">14 kg</p>
+            </div>
+            <div id="person6" class="person_div" style="position:relative; left:45.5em;top:10em">
+              <img class="person" src="./img/people/m3.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/bn1.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.5em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Mike</p>
+              <img class="bag" src="./img/bags/6.png" style="width:6em;position:absolute;top:8.5em; left:5em;"/>
+              <p class="weight" style="position:absolute; top:10.3em; left:5.8em; color:black;">28 kg</p>
+            </div>
+            <div id="person7" class="person_div" style="position:relative; left:55em;top:11.2em">
+              <img class="person" src="./img/people/m4.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/rd6.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.3em; left:3em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);">Jim</p>
+              <img class="bag" src="./img/bags/7.png" style="width:6em;position:absolute;top:7.8em; left:6.6em;"/>
+              <p class="weight" style="position:absolute; top:11.3em; left:6.9em; color:black;">19 kg</p>
+            </div>
+            <div id="person8" class="person_div" style="position:relative; left:66em;top:12.5em">
+              <img class="person" src="./img/people/f4.png" style="width:10em;position:absolute; top:0.2em"/>
+              <img class="hair" src="./img/hair/bn2.png" style="width:10em;position:absolute"/>
+              <p class="personname" style="position:absolute; top:9.2em; left:2.5em; color:black; transform: rotate(14deg);-ms-transform: rotate(14deg);-webkit-transform: rotate(14deg);"></p>
+              <img class="bag" src="./img/bags/8.png" style="width:6em;position:absolute;top:4em; left:8em;"/>
+              <p class="weight" style="position:absolute; top:11.7em; left:8.6em; color:black;"></p>
+            </div>
+            <div id="person_end" style="position:relative; left:41em;top:3em; display:none">
+              <img src="./img/end.png" style="width:7em;position:absolute; top:0.2em"/>
+            </div>
+          </div>
+          <img id="plane" src="./img/plane.png"/>
+        </div>
+		</div>
+
+
+
+
+
+<div id="info-modal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">http://www.sql-island.de - SQL Island</h2>
+  <p class="lead">Ein Text-Adventure-Lernspiel für die Datenbanksprache SQL</p>
+  <p>SQL Island Touch ist eine vereinfachte Version vom Datenbanken-Lernspiel SQL Island. Die Spiele wurden entwickelt von Johannes Schildgen, die Grafiken wurden erstellt von Isabell Ruth.</p>
+	<p>Weitere Infos zum Spiel auf sql-island.de</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+
+
+
+
+    <script src="./js/spin.min.js"></script>
+    <script type="text/javascript" src="./js/modernizr.foundation.js"></script>
+    <script type="text/javascript" src="./js/screen-common.js"></script>
+    <script src="./js/foundation.min.js"></script>
+
+
+		<script type="text/javascript"  src="./js/picker.min.js"></script>
+    <script src="./js/game.js"></script>
+  </body>
+</html>
